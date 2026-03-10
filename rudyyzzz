@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaptopFix Pro - Servis Laptop Elegan & Murah</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f4c5c; /* Deep Teal - Elegan & Tenang */
+            --secondary: #3282b8; /* Lighter Blue - Teknologi */
+            --accent: #f4d35e; /* Soft Gold - Premium feel */
+            --dark: #1a1a1a;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span { color: var(--secondary); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--secondary); }
+
+        .btn-cta {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(15, 76, 92, 0.3);
+        }
+
+        .btn-cta:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 8rem 5% 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 90vh;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            /* Placeholder image of a clean laptop */
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .badge i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        /* --- FEATURES --- */
+        .features {
+            background: var(--white);
+            padding: 4rem 5%;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 { margin-bottom: 0.5rem; }
+        .feature-item p { font-size: 0.9rem; color: #777; }
+
+        /* --- PRICING (RAMAH DI KANTONG) --- */
+        .pricing {
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .section-title {
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .section-title p { color: #666; }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow);
+        }
+
+        .price-card.popular {
+            border: 2px solid var(--primary);
+        }
+
+        .popular-tag {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border-radius: 20px;
+        }
+
+        .price-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .price { font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; }
+        .price span { font-size: 1rem; color: #999; font-weight: 400; }
+        
+        .price-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .price-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+
+        .price-features li i { color: var(--secondary); }
+
+        .btn-price {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .price-card:hover .btn-price {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* --- CONTACT --- */
+        .contact {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .contact h2 { margin-bottom: 1rem; }
+        .contact p { margin-bottom: 2rem; opacity: 0.9; }
+
+        .contact-btn {
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--dark);
+            color: #888;
+            padding: 2rem 5%;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 6rem;
+            }
+            .hero-text { padding-right: 0; margin-bottom: 3rem; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .features { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Hide menu on mobile for simplicity */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">LaptopFix<span>Pro</span></div>
+        <div class="nav-links">
+            <a href="#home">Beranda</a>
+            <a href="#pricing">Harga</a>
+            <a href="#services">Layanan</a>
+            <a href="#contact">Kontak</a>
+        </div>
+        <a href="https://wa.me/62895320585244?text=Halo%20LaptopFixPro,%20saya%20mau%20tanya%20servis." class="btn-cta">
+            <i class="fab fa-whatsapp"></i> Chat Teknisi
+        </a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Laptop Lemot?<br>Solusi Cepat & <span style="color:var(--secondary)">Terjangkau.</span></h1>
+            <p>Jasa servis laptop profesional dengan teknisi berpengalaman. Kami menjamin kualitas kerja terbaik dengan harga yang ramah di kantong.</p>
+            <a href="#pricing" class="btn-cta" style="background: var(--secondary);">Lihat Paket Servis</a>
+        </div>
+        <div class="hero-image">
+            <!-- Gambar Laptop Estetik -->
+            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Laptop Servis">
+            <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h4>Garansi 30 Hari</h4>
+                    <p style="font-size: 0.8rem; color: #666;">Pekerjaan terjamin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <div class="features">
+        <div class="feature-item">
+            <i class="fas fa-stopwatch"></i>
+            <h3>Proses Cepat</h3>
+            <p>Perbaikan ringan selesai dalam 1-2 jam kerja.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-wallet"></i>
+            <h3>Harga Transparan</h3>
+            <p>Tidak ada biaya tersembunyi. Bayar sesuai kesepakatan.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-tools"></i>
+            <h3>Spesialis Semua Merk</h3>
+            <p>Melayani Asus, Acer, Lenovo, HP, Dell, dan Macbook.</p>
+        </div>
+    </div>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing" id="pricing">
+        <div class="section-title">
+            <h2>Paket Ramah Kantong</h2>
+            <p>Pilih layanan yang sesuai dengan kebutuhan laptopmu</p>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Paket 1 -->
+            <div class="price-card">
+                <h3>Servis Ringan</h3>
+                <div class="price">Rp 50k<span>/mulai</span></div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> Install Ulang Windows</li>
+                    <li><i class="fas fa-check"></i> Install Office & Driver</li>
+                    <li><i class="fas fa-check"></i> Bersihkan Virus/Malware</li>
+                    <li><i class="fas fa-check"></i> Garansi Software 1 Bulan</li>
+                </ul>
+                <a href="https://wa.me/6281234567890?text=Saya%20mau%20Paket%20Servis%20Ringan" class="btn-price">Pilih Paket</a>
+            </div>
+
+            <!-- Paket 2 (Populer) -->
+            <div class="price-card popular">
+                <div class="popular-tag">Terlaris</div>
+                <h3>Servis Hardware</h3>
+                <div class="price">Rp 100k<span>/mulai</span></div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> Ganti Keyboard</li>
+                    <li><i class="fas fa-check"></i> Ganti Baterai</li>
+                    <li><i class="fas fa-check"></i> Ganti Layar (LCD)</li>
+                    <li><i class="fas fa-check"></i> Upgrade RAM / SSD</li>
+                    <li><i class="fas fa-check"></i> Garansi Hardware 3 Bulan</li>
+                </ul>
+                <a href="https://wa.me/6281234567890?text=Saya%20mau%20Paket%20Servis%20Hardware" class="btn-price">Pilih Paket</a>
+            </div>
+
+            <!-- Paket 3 -->
+            <div class="price-card">
+                <h3>Cuci & Perawatan</h3>
+                <div class="price">Rp 75k<span>/mulai</span></div>
+                <ul class="price-features">
+                    <li><i class="fas fa-check"></i> Cuci Laptop (Disassembly)</li>
+                    <li><i class="fas fa-check"></i> Ganti Thermal Paste</li>
+                    <li><i class="fas fa-check"></i> Bersihkan Debu Fan</li>
+                    <li><i class="fas fa-check"></i> Laptop Lebih Dingin</li>
+                </ul>
+                <a href="https://wa.me/6281234567890?text=Saya%20
