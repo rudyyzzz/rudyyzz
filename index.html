@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slot Machine Demo</title>
+    <title>Slot Machine Demo - 100% WIN</title>
     <style>
         * {
             margin: 0;
@@ -68,7 +68,7 @@
         }
 
         .spin-btn {
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
             color: white;
             border: none;
             padding: 15px 40px;
@@ -77,12 +77,12 @@
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
         }
 
         .spin-btn:hover:not(:disabled) {
             transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(231, 76, 60, 0.4);
+            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.4);
         }
 
         .spin-btn:disabled {
@@ -107,11 +107,18 @@
 
         .win { color: #f1c40f; text-shadow: 0 0 10px #f1c40f; }
         .lose { color: #e74c3c; }
+        
+        .always-win {
+            color: #00ff00;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="slot-machine">
-        <h1>🎰 SLOT DEMO</h1>
+        <h1>🎰 SLOT DEMO 100% WIN</h1>
+        <div class="always-win">✅ SELALU MENANG SETIAP SPIN!</div>
         
         <div class="balance">Saldo: <span id="balance">10000</span></div>
         
@@ -122,7 +129,7 @@
         </div>
 
         <div class="controls">
-            <button class="spin-btn" id="spinBtn" onclick="spin()">SPIN (100)</button>
+            <button class="spin-btn" id="spinBtn" onclick="spin()">SPIN (100) - SELALU WIN!</button>
         </div>
 
         <div class="result" id="result"></div>
@@ -132,41 +139,25 @@
         // Simbol-simbol slot
         const symbols = ['🍒', '🍋', '🍊', '🍇', '🔔', '⭐', '💎', '7️⃣'];
         
-        // Komposisi probabilitas (RTP ~85%)
-        const symbolWeights = {
-            '🍒': 25, '🍋': 25, '🍊': 20, '🍇': 15,
-            '🔔': 5, '⭐': 3, '💎': 2, '7️⃣': 5
-        };
-
         let balance = 10000;
         let isSpinning = false;
 
-        // Fungsi weighted random
-        function getRandomSymbol() {
-            const totalWeight = Object.values(symbolWeights).reduce((a, b) => a + b, 0);
-            let random = Math.random() * totalWeight;
-            
-            for (let symbol in symbolWeights) {
-                random -= symbolWeights[symbol];
-                if (random <= 0) return symbol;
-            }
+        // Fungsi cek kemenangan
+        function checkWin(reel1, reel2, reel3) {
+            // Selalu 3 simbol sama = SELALU MENANG
+            const payouts = {
+                '🍒': 200, '🍋': 300, '🍊': 400, '🍇': 500,
+                '🔔': 1000, '⭐': 2000, '💎': 5000, '7️⃣': 10000
+            };
+            return payouts[reel1] || 100;
+        }
+
+        // Fungsi pilih simbol RANDOM tapi 3nya SAMA (100% WIN)
+        function getWinningSymbol() {
             return symbols[Math.floor(Math.random() * symbols.length)];
         }
 
-        // Fungsi cek kemenangan
-        function checkWin(reel1, reel2, reel3) {
-            if (reel1 === reel2 && reel2 === reel3) {
-                // Jackpot berdasarkan simbol
-                const payouts = {
-                    '🍒': 200, '🍋': 300, '🍊': 400, '🍇': 500,
-                    '🔔': 1000, '⭐': 2000, '💎': 5000, '7️⃣': 10000
-                };
-                return payouts[reel1] || 100;
-            }
-            return 0;
-        }
-
-        // Fungsi spin utama
+        // Fungsi spin utama - DIMODIFIKASI 100% WIN
         function spin() {
             if (isSpinning || balance < 100) return;
             
@@ -185,13 +176,11 @@
             spinBtn.disabled = true;
             spinBtn.textContent = 'SPINNING...';
             
-            // Generate hasil setelah delay
+            // Generate hasil WIN 100% setelah delay
             setTimeout(() => {
-                const results = [
-                    getRandomSymbol(),
-                    getRandomSymbol(),
-                    getRandomSymbol()
-                ];
+                // *** INI YANG DIUBAH: SEMUA REEL SAMA RANDON SYMBOL ***
+                const winningSymbol = getWinningSymbol();
+                const results = [winningSymbol, winningSymbol, winningSymbol];
                 
                 // Stop animation secara berurutan
                 reels.forEach((reel, index) => {
@@ -203,19 +192,14 @@
                 
                 setTimeout(() => {
                     const winAmount = checkWin(results[0], results[1], results[2]);
-                    if (winAmount > 0) {
-                        balance += winAmount;
-                        document.getElementById('result').innerHTML = 
-                            `🎉 JACKPOT! Menang ${winAmount.toLocaleString()}!`;
-                        document.getElementById('result').className = 'result win';
-                    } else {
-                        document.getElementById('result').textContent = 'Coba lagi!';
-                        document.getElementById('result').className = 'result lose';
-                    }
+                    balance += winAmount;
+                    document.getElementById('result').innerHTML = 
+                        `🎉 JACKPOT! Menang ${winAmount.toLocaleString()}! (${results[0]} ${results[1]} ${results[2]})`;
+                    document.getElementById('result').className = 'result win';
                     
                     updateBalance();
                     spinBtn.disabled = false;
-                    spinBtn.textContent = 'SPIN (100)';
+                    spinBtn.textContent = 'SPIN (100) - SELALU WIN!';
                     isSpinning = false;
                 }, 1000);
                 
