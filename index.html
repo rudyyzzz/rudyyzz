@@ -15,18 +15,18 @@
 
         body {
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
             font-family: 'Poppins', sans-serif;
-            overflow: hidden;
+            overflow-y: auto; /* Ubah dari hidden ke auto */
             color: white;
+            padding: 40px 20px;
         }
 
         /* Canvas untuk background hati */
         #canvas {
-            position: absolute;
+            position: fixed; /* Ubah dari absolute ke fixed */
             top: 0;
             left: 0;
             width: 100%;
@@ -41,8 +41,10 @@
             z-index: 10;
             text-align: center;
             max-width: 600px;
+            width: 100%;
             padding: 20px;
-            opacity: 0; /* Awalnya tersembunyi muncul setelah intro */
+            margin: auto;
+            opacity: 0;
             animation: fadeIn 2s ease forwards;
             animation-delay: 1s;
         }
@@ -91,6 +93,7 @@
             line-height: 1.8;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left; /* Biar teks rapih dikiri-kanan */
         }
 
         .isi-pesan.show {
@@ -103,11 +106,27 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* CSS untuk scrollbar（元美化） */
+        .isi-pesan::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .isi-pesan::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .isi-pesan::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+        }
+
         .tanda-tangan {
             margin-top: 30px;
             font-family: 'Great Vibes', cursive;
             font-size: 2rem;
             color: #ffdde1;
+            text-align: center;
         }
 
     </style>
@@ -142,7 +161,7 @@ kalau nanti aku mulai hilang, mulai jarang muncul, mulai ga ngechat lagi, itu bu
 
 aku pengen kamu tau, kamu pernah jadi bagian paling indah di hidup aku. bahkan di saat kamu ga sadar pun, kamu pernah jadi alasan aku semangat jalanin hari. cuma ya mungkin aku memang bukan orang yang ditakdirkan buat menetap di hidup kamu.
 
-terima kasih ya udah pernah hadir. terima kasih udah bikin aku ngerasain nyaman yang sebelumnya ga pernah aku rasain. terima kasih buat semua kenangan yang bakal selalu aku inget, walaupun mungkin nantinya cuma aku sendiri yang masih nyimpen semuanya.
+terima kasih ya udah pernah hadir. terima kasih sudah bikin aku ngerasain nyaman yang sebelumnya ga pernah aku rasain. terima kasih buat semua kenangan yang bakal selalu aku inget, walaupun mungkin nantinya cuma aku sendiri yang masih nyimpen semuanya.
 
 aku minta maaf kalau selama ini aku terlalu berlebihan, terlalu posesif, terlalu sering ganggu kamu, atau terlalu banyak berharap. aku cuma manusia yang kebetulan jatuh terlalu dalam ke orang yang salah… atau mungkin ke orang yang ga bisa aku miliki sepenuhnya.
 
@@ -151,8 +170,7 @@ setelah pesan ini mungkin aku bakal belajar buat ngilang pelan-pelan dari hidup 
 dan terakhir…
 tolong jaga diri baik-baik ya. jangan sering begadang. jangan lupa makan. jangan terlalu keras sama diri sendiri. semoga semua hal baik selalu dateng ke hidup kamu, meskipun nantinya aku udah ga ada lagi di dalamnya.
 
-aku cuma pengen kamu bahagia, walaupun bahagia itu bukan sama aku.
-.<br><br>
+aku cuma pengen kamu bahagia, kebahagiaanmu.<br><br>
             </p>
             <div class="tanda-tangan">dari Aku</div>
         </div>
