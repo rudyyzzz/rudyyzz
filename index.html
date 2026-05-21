@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slot Machine Demo - 100% WIN</title>
+    <title>Pesan Terakhir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
+        /* --- CSS STYLE --- */
         * {
             margin: 0;
             padding: 0;
@@ -12,212 +14,213 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .slot-machine {
-            background: #2c3e50;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-
-        .screen {
-            display: flex;
-            gap: 10px;
-            margin: 20px 0;
-            padding: 20px;
-            background: #34495e;
-            border-radius: 15px;
-            border: 3px solid #ecf0f1;
-        }
-
-        .reel {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(180deg, #ecf0f1, #bdc3c7);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3em;
-            font-weight: bold;
-            color: #2c3e50;
+            font-family: 'Poppins', sans-serif;
             overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 5px 10px rgba(0,0,0,0.2);
-        }
-
-        .reel.spinning {
-            animation: spin 0.3s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotateX(0deg); }
-            100% { transform: rotateX(360deg); }
-        }
-
-        .controls {
-            margin: 20px 0;
-        }
-
-        .spin-btn {
-            background: linear-gradient(45deg, #27ae60, #2ecc71);
             color: white;
-            border: none;
+        }
+
+        /* Canvas untuk background hati */
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Kontainer Utama */
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            opacity: 0; /* Awalnya tersembunyi muncul setelah intro */
+            animation: fadeIn 2s ease forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            color: #ffdde1;
+        }
+
+        /* Tombol Buka Pesan */
+        .btn-buka {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: white;
             padding: 15px 40px;
-            font-size: 1.2em;
-            font-weight: bold;
+            font-size: 1.2rem;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
-        }
-
-        .spin-btn:hover:not(:disabled) {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.4);
-        }
-
-        .spin-btn:disabled {
-            background: #95a5a6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .balance {
-            color: #f39c12;
-            font-size: 1.5em;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        .result {
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             margin-top: 20px;
-            font-size: 1.3em;
-            font-weight: bold;
-            min-height: 40px;
         }
 
-        .win { color: #f1c40f; text-shadow: 0 0 10px #f1c40f; }
-        .lose { color: #e74c3c; }
-        
-        .always-win {
-            color: #00ff00;
-            font-size: 1.1em;
-            margin-top: 10px;
+        .btn-buka:hover {
+            background: white;
+            color: #302b63;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
+
+        /* Konten Pesan (Tersembunyi dulu) */
+        .isi-pesan {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 30px;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .isi-pesan.show {
+            display: block;
+            animation: showText 2s ease forwards;
+        }
+
+        @keyframes showText {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tanda-tangan {
+            margin-top: 30px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #ffdde1;
+        }
+
     </style>
 </head>
 <body>
-    <div class="slot-machine">
-        <h1>🎰 SLOT DEMO 100% WIN</h1>
-        <div class="always-win">✅ SELALU MENANG SETIAP SPIN!</div>
-        
-        <div class="balance">Saldo: <span id="balance">10000</span></div>
-        
-        <div class="screen">
-            <div class="reel" id="reel1">🍒</div>
-            <div class="reel" id="reel2">🍋</div>
-            <div class="reel" id="reel3">🍊</div>
-        </div>
 
-        <div class="controls">
-            <button class="spin-btn" id="spinBtn" onclick="spin()">SPIN (100) - SELALU WIN!</button>
-        </div>
+    <!-- Background Animation -->
+    <canvas id="canvas"></canvas>
 
-        <div class="result" id="result"></div>
+    <div class="container">
+        <h1>Untuk Kamu</h1>
+        
+        <button class="btn-buka" onclick="bukaPesan()">Buka Pesan Ini</button>
+
+        <div class="isi-pesan" id="isiPesan">
+            <p>
+                Pertama-tama, terima kasih sudah membaca ini.<br><br>
+                Aku tidak tahu lagi harus mulai dari mana. Rasanya berat sekali rasanya harus menyampaikan ini lewat cara seperti ini, tapi aku rasa inilah satu-satunya cara agar aku bisa menyampaikannya dengan tenang tanpa ada kata-kata yang terlambat ucapkan.<br><br>
+                Kamu tahu, semua tentang kita selalu menjadi kenangan terindah bagiku. Tapi, ada kalanya kita harus pergi各自的各自的ujuan masing-masing.<br><br>
+                Ini adalah pesan terakhirku untukmu. Tidak ada kata menyesal, hanya rasa syukur pernah mengenalmu.<br><br>
+                Dijaga kesehatannya, ya. Eat well, sleep well.<br><br>
+            </p>
+            <div class="tanda-tangan">dari Aku</div>
+        </div>
     </div>
 
     <script>
-        // Simbol-simbol slot
-        const symbols = ['🍒', '🍋', '🍊', '🍇', '🔔', '⭐', '💎', '7️⃣'];
-        
-        let balance = 10000;
-        let isSpinning = false;
+        // --- JAVASCRIPT LOGIC ---
 
-        // Fungsi cek kemenangan
-        function checkWin(reel1, reel2, reel3) {
-            // Selalu 3 simbol sama = SELALU MENANG
-            const payouts = {
-                '🍒': 200, '🍋': 300, '🍊': 400, '🍇': 500,
-                '🔔': 1000, '⭐': 2000, '💎': 5000, '7️⃣': 10000
-            };
-            return payouts[reel1] || 100;
-        }
-
-        // Fungsi pilih simbol RANDOM tapi 3nya SAMA (100% WIN)
-        function getWinningSymbol() {
-            return symbols[Math.floor(Math.random() * symbols.length)];
-        }
-
-        // Fungsi spin utama - DIMODIFIKASI 100% WIN
-        function spin() {
-            if (isSpinning || balance < 100) return;
+        // 1. Fungsi Membuka Pesan
+        function bukaPesan() {
+            const btn = document.querySelector('.btn-buka');
+            const pesan = document.getElementById('isiPesan');
             
-            isSpinning = true;
-            balance -= 100;
-            updateBalance();
-            
-            const spinBtn = document.getElementById('spinBtn');
-            const reels = ['reel1', 'reel2', 'reel3'];
-            
-            // Start spinning animation
-            reels.forEach(reel => {
-                document.getElementById(reel).classList.add('spinning');
-            });
-            
-            spinBtn.disabled = true;
-            spinBtn.textContent = 'SPINNING...';
-            
-            // Generate hasil WIN 100% setelah delay
+            // Hilangkan tombol
+            btn.style.transition = "all 0.5s";
+            btn.style.opacity = "0";
             setTimeout(() => {
-                // *** INI YANG DIUBAH: SEMUA REEL SAMA RANDON SYMBOL ***
-                const winningSymbol = getWinningSymbol();
-                const results = [winningSymbol, winningSymbol, winningSymbol];
-                
-                // Stop animation secara berurutan
-                reels.forEach((reel, index) => {
-                    setTimeout(() => {
-                        document.getElementById(reel).classList.remove('spinning');
-                        document.getElementById(reel).textContent = results[index];
-                    }, index * 300);
-                });
-                
-                setTimeout(() => {
-                    const winAmount = checkWin(results[0], results[1], results[2]);
-                    balance += winAmount;
-                    document.getElementById('result').innerHTML = 
-                        `🎉 JACKPOT! Menang ${winAmount.toLocaleString()}! (${results[0]} ${results[1]} ${results[2]})`;
-                    document.getElementById('result').className = 'result win';
-                    
-                    updateBalance();
-                    spinBtn.disabled = false;
-                    spinBtn.textContent = 'SPIN (100) - SELALU WIN!';
-                    isSpinning = false;
-                }, 1000);
-                
+                btn.style.display = "none";
             }, 500);
+
+            // Munculkan pesan
+            setTimeout(() => {
+                pesan.classList.add('show');
+            }, 300);
         }
 
-        function updateBalance() {
-            document.getElementById('balance').textContent = 
-                balance.toLocaleString();
-        }
+        // 2. Animasi Hati Melayang di Background
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-        // Keyboard support
-        document.addEventListener('keydown', (e) => {
-            if (e.code === 'Space') {
-                e.preventDefault();
-                spin();
+        let particlesArray;
+
+        // Membuat kelas particle (hati)
+        class HeartParticle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height - 50;
+                this.size = Math.random() * 5 + 1; // Ukuran random
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = "rgba(255, 255, 255," + Math.random() + ")";
+                this.initialX = this.x;
             }
+            update() {
+                this.y -= this.speedY; // Bergerak ke atas
+                // Oscilasi halus ke kiri kanan
+                this.x += Math.sin(this.y * 0.01) * 0.5;
+
+                // Jika keluar layar atas, muncul kembali di bawah
+                if (this.y < 0 - this.size) {
+                    this.y = canvas.height + this.size;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                // Membuat shape hati sederhana
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particlesArray = [];
+            let jumlah = 100; // Banyaknya hati
+            for (let i = 0; i < jumlah; i++) {
+                particlesArray.push(new HeartParticle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // Jalankan animasi
+        init();
+        animate();
+
+        // Resize Handle
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
         });
+
     </script>
 </body>
 </html>
