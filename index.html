@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesan Terakhir</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <title>Untuk Kesayanganku ❤️</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        /* --- CSS STYLE --- */
         * {
             margin: 0;
             padding: 0;
@@ -19,14 +20,13 @@
             display: flex;
             justify-content: center;
             font-family: 'Poppins', sans-serif;
-            overflow-y: auto; /* Ubah dari hidden ke auto */
+            overflow-y: auto;
             color: white;
             padding: 40px 20px;
         }
 
-        /* Canvas untuk background hati */
         #canvas {
-            position: fixed; /* Ubah dari absolute ke fixed */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -35,12 +35,11 @@
             pointer-events: none;
         }
 
-        /* Kontainer Utama */
         .container {
             position: relative;
             z-index: 10;
             text-align: center;
-            max-width: 600px;
+            max-width: 650px;
             width: 100%;
             padding: 20px;
             margin: auto;
@@ -50,18 +49,25 @@
         }
 
         @keyframes fadeIn {
-            to { opacity: 1; }
+            to {
+                opacity: 1;
+            }
         }
 
         h1 {
             font-family: 'Great Vibes', cursive;
             font-size: 4rem;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
             color: #ffdde1;
         }
 
-        /* Tombol Buka Pesan */
+        .subjudul {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
         .btn-buka {
             background: transparent;
             border: 2px solid rgba(255, 255, 255, 0.5);
@@ -79,21 +85,21 @@
         .btn-buka:hover {
             background: white;
             color: #302b63;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
         }
 
-        /* Konten Pesan (Tersembunyi dulu) */
         .isi-pesan {
             display: none;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            padding: 40px;
+            -webkit-backdrop-filter: blur(10px);
+            padding: 35px;
             border-radius: 20px;
             margin-top: 30px;
-            line-height: 1.8;
+            line-height: 1.9;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: left; /* Biar teks rapih dikiri-kanan */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: left;
         }
 
         .isi-pesan.show {
@@ -102,141 +108,317 @@
         }
 
         @keyframes showText {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* CSS untuk scrollbar（元美化） */
-        .isi-pesan::-webkit-scrollbar {
-            width: 8px;
+        .isi-pesan p {
+            font-size: 1rem;
         }
-        
-        .isi-pesan::-webkit-scrollbar-track {
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-        }
-        
-        .isi-pesan::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.3);
-            border-radius: 10px;
+
+        .highlight {
+            color: #ffdde1;
+            font-weight: 600;
         }
 
         .tanda-tangan {
             margin-top: 30px;
             font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
+            font-size: 2.3rem;
             color: #ffdde1;
             text-align: center;
         }
 
+        .heart {
+            text-align: center;
+            font-size: 2rem;
+            margin: 15px 0;
+            animation: denyut 1.5s infinite;
+        }
+
+        @keyframes denyut {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 3.2rem;
+            }
+
+            .isi-pesan {
+                padding: 25px;
+            }
+
+            .btn-buka {
+                padding: 13px 30px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-    <!-- Background Animation -->
     <canvas id="canvas"></canvas>
 
     <div class="container">
-        <h1>Untuk Kamu</h1>
-        
-        <button class="btn-buka" onclick="bukaPesan()">Buka Pesan Ini</button>
+
+        <h1>Untuk Kamu ❤️</h1>
+
+        <div class="subjudul">
+            Ada sedikit sesuatu yang ingin aku sampaikan...
+        </div>
+
+        <button class="btn-buka" onclick="bukaPesan()">
+            Buka Pesan Ini
+        </button>
 
         <div class="isi-pesan" id="isiPesan">
+
             <p>
-                Pertama-tama, terima kasih sudah membaca ini.<br><br>
-          btw aku ayam<br><br>
+                Untuk kesayangan, cintaku, dan seseorang yang sangat berarti buat aku...
+                <br><br>
+
+                Aku cuma mau bilang <span class="highlight">terima kasih</span>.
+                Terima kasih karena selama ini kamu sudah hadir di hidup aku.
+                Terima kasih untuk semua perhatian kecil yang mungkin menurut kamu biasa,
+                tapi buat aku punya arti yang besar.
+                <br><br>
+
+                Terima kasih karena sudah mau mendengarkan aku,
+                menemani aku, bercanda sama aku, membuat aku tersenyum,
+                bahkan di saat aku sendiri mungkin sedang nggak baik-baik saja.
+                <br><br>
+
+                Aku mungkin nggak selalu pintar mengungkapkan apa yang aku rasakan.
+                Kadang aku bercanda, kadang aku nyebelin, kadang mungkin aku terlalu banyak mikir.
+                Tapi satu hal yang aku harap kamu tahu...
+                <br><br>
+
+                <span class="highlight">
+                    Aku benar-benar menghargai keberadaan kamu.
+                </span>
+                <br><br>
+
+                Buat aku, kamu bukan cuma seseorang yang aku sayang.
+                Kamu adalah tempat aku berbagi cerita,
+                tempat aku bisa menjadi diriku sendiri,
+                seseorang yang bisa membuat hari biasa terasa lebih berarti.
+                <br><br>
+
+                Aku bersyukur bisa mengenal kamu.
+                Bersyukur pernah menemukan seseorang yang bisa membuat aku
+                merasakan banyak hal yang mungkin sebelumnya belum pernah aku rasakan.
+                <br><br>
+
+                Kalau suatu hari aku lupa mengatakannya,
+                tolong ingat satu hal ini:
+                <br><br>
+
+                <span class="highlight">
+                    Aku sayang kamu.
+                    Aku menghargai kamu.
+                    Dan aku berterima kasih karena kamu sudah menjadi bagian
+                    dari cerita hidup aku.
+                </span>
+
+                <div class="heart">❤️</div>
+
+                Aku nggak tahu perjalanan kita ke depannya akan seperti apa.
+                Tapi selama masih ada kesempatan untuk bersama,
+                aku ingin terus memberikan yang terbaik yang aku bisa.
+                <br><br>
+
+                Terima kasih sudah menjadi kamu.
+                Terima kasih sudah hadir.
+                Dan terima kasih untuk semua hal kecil maupun besar
+                yang sudah kamu berikan kepadaku.
+                <br><br>
+
+                <span class="highlight">
+                    Pokoknya... kalau aku ditanya siapa yang paling ingin aku ucapkan
+                    terima kasih karena sudah hadir di hidupku,
+                    jawabannya adalah kamu.
+                </span>
+
             </p>
-            <div class="tanda-tangan">dari Aku bsk ayam</div>
+
+            <div class="tanda-tangan">
+                Dengan penuh sayang,<br>
+                Aku ❤️
+            </div>
+
         </div>
     </div>
 
-    <script>
-        // --- JAVASCRIPT LOGIC ---
 
-        // 1. Fungsi Membuka Pesan
+    <script>
+
         function bukaPesan() {
+
             const btn = document.querySelector('.btn-buka');
             const pesan = document.getElementById('isiPesan');
-            
-            // Hilangkan tombol
+
             btn.style.transition = "all 0.5s";
             btn.style.opacity = "0";
+
             setTimeout(() => {
                 btn.style.display = "none";
             }, 500);
 
-            // Munculkan pesan
             setTimeout(() => {
                 pesan.classList.add('show');
             }, 300);
         }
 
-        // 2. Animasi Hati Melayang di Background
+
+        // Background hati
+
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         let particlesArray;
 
-        // Membuat kelas particle (hati)
+
         class HeartParticle {
+
             constructor() {
+
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height - 50;
-                this.size = Math.random() * 5 + 1; // Ukuran random
-                this.speedY = Math.random() * 1 - 0.5;
-                this.color = "rgba(255, 255, 255," + Math.random() + ")";
-                this.initialX = this.x;
-            }
-            update() {
-                this.y -= this.speedY; // Bergerak ke atas
-                // Oscilasi halus ke kiri kanan
-                this.x += Math.sin(this.y * 0.01) * 0.5;
 
-                // Jika keluar layar atas, muncul kembali di bawah
+                this.size = Math.random() * 5 + 1;
+
+                this.speedY = Math.random() * 1 - 0.5;
+
+                this.color =
+                    "rgba(255, 255, 255," +
+                    Math.random() +
+                    ")";
+
+            }
+
+
+            update() {
+
+                this.y -= this.speedY;
+
+                this.x +=
+                    Math.sin(this.y * 0.01) * 0.5;
+
+
                 if (this.y < 0 - this.size) {
-                    this.y = canvas.height + this.size;
-                    this.x = Math.random() * canvas.width;
+
+                    this.y =
+                        canvas.height + this.size;
+
+                    this.x =
+                        Math.random() * canvas.width;
                 }
+
             }
+
+
             draw() {
+
                 ctx.fillStyle = this.color;
+
                 ctx.beginPath();
-                // Membuat shape hati sederhana
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+
+                ctx.arc(
+                    this.x,
+                    this.y,
+                    this.size,
+                    0,
+                    Math.PI * 2
+                );
+
                 ctx.fill();
+
             }
+
         }
+
 
         function init() {
+
             particlesArray = [];
-            let jumlah = 100; // Banyaknya hati
+
+            let jumlah = 100;
+
             for (let i = 0; i < jumlah; i++) {
-                particlesArray.push(new HeartParticle());
+
+                particlesArray.push(
+                    new HeartParticle()
+                );
+
             }
+
         }
+
 
         function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < particlesArray.length; i++) {
+
+            ctx.clearRect(
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
+
+            for (
+                let i = 0;
+                i < particlesArray.length;
+                i++
+            ) {
+
                 particlesArray[i].update();
+
                 particlesArray[i].draw();
+
             }
+
             requestAnimationFrame(animate);
+
         }
 
-        // Jalankan animasi
+
         init();
         animate();
 
-        // Resize Handle
-        window.addEventListener("resize", () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            init();
-        });
+
+        window.addEventListener(
+            "resize",
+            () => {
+
+                canvas.width =
+                    window.innerWidth;
+
+                canvas.height =
+                    window.innerHeight;
+
+                init();
+
+            }
+        );
 
     </script>
+
 </body>
 </html>
