@@ -15,7 +15,17 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.35), transparent 30%),
+                radial-gradient(circle at 80% 80%, rgba(255, 20, 147, 0.25), transparent 35%),
+                linear-gradient(
+                    135deg,
+                    #160b20,
+                    #3b163f,
+                    #5a214f,
+                    #24152f
+                );
+
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -25,6 +35,7 @@
             padding: 40px 20px;
         }
 
+        /* CANVAS LOVE */
         #canvas {
             position: fixed;
             top: 0;
@@ -58,19 +69,22 @@
             font-family: 'Great Vibes', cursive;
             font-size: 4rem;
             margin-bottom: 20px;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-            color: #ffdde1;
+            text-shadow:
+                0 0 10px rgba(255, 180, 220, 0.7),
+                0 0 25px rgba(255, 105, 180, 0.3);
+
+            color: #ffd6e8;
         }
 
         .subjudul {
             font-size: 1rem;
-            opacity: 0.8;
+            opacity: 0.85;
             margin-bottom: 10px;
         }
 
         .btn-buka {
-            background: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 210, 230, 0.6);
             color: white;
             padding: 15px 40px;
             font-size: 1.2rem;
@@ -83,22 +97,33 @@
         }
 
         .btn-buka:hover {
-            background: white;
-            color: #302b63;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+            background: #ffd6e8;
+            color: #3b163f;
+            box-shadow:
+                0 0 20px rgba(255, 105, 180, 0.6),
+                0 0 40px rgba(255, 105, 180, 0.3);
         }
 
         .isi-pesan {
             display: none;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+
+            background: rgba(255, 190, 220, 0.10);
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
             padding: 35px;
             border-radius: 20px;
             margin-top: 30px;
+
             line-height: 1.9;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(255, 105, 180, 0.08);
+
+            border: 1px solid rgba(255, 210, 230, 0.2);
+
             text-align: left;
         }
 
@@ -124,23 +149,33 @@
         }
 
         .highlight {
-            color: #ffdde1;
+            color: #ffd1e5;
             font-weight: 600;
+
+            text-shadow:
+                0 0 8px rgba(255, 105, 180, 0.35);
         }
 
         .tanda-tangan {
             margin-top: 30px;
             font-family: 'Great Vibes', cursive;
             font-size: 2.3rem;
-            color: #ffdde1;
+            color: #ffd6e8;
             text-align: center;
+
+            text-shadow:
+                0 0 10px rgba(255, 105, 180, 0.4);
         }
 
         .heart {
             text-align: center;
             font-size: 2rem;
             margin: 15px 0;
+
             animation: denyut 1.5s infinite;
+
+            filter:
+                drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
         }
 
         @keyframes denyut {
@@ -154,6 +189,7 @@
         }
 
         @media (max-width: 600px) {
+
             h1 {
                 font-size: 3.2rem;
             }
@@ -172,6 +208,7 @@
 
 <body>
 
+    <!-- LOVE MELAYANG -->
     <canvas id="canvas"></canvas>
 
     <div class="container">
@@ -186,75 +223,126 @@
             Buka Pesan Ini
         </button>
 
+
+        <!-- ISI PESAN -->
         <div class="isi-pesan" id="isiPesan">
 
             <p>
+
                 Untuk kesayangan, cintaku, dan seseorang yang sangat berarti buat aku...
                 <br><br>
 
-                Aku cuma mau bilang <span class="highlight">terima kasih</span>.
-                Terima kasih karena selama ini kamu sudah hadir di hidup aku.
-                Terima kasih untuk semua perhatian kecil yang mungkin menurut kamu biasa,
-                tapi buat aku punya arti yang besar.
-                <br><br>
-
-                Terima kasih karena sudah mau mendengarkan aku,
-                menemani aku, bercanda sama aku, membuat aku tersenyum,
-                bahkan di saat aku sendiri mungkin sedang nggak baik-baik saja.
-                <br><br>
-
-                Aku mungkin nggak selalu pintar mengungkapkan apa yang aku rasakan.
-                Kadang aku bercanda, kadang aku nyebelin, kadang mungkin aku terlalu banyak mikir.
-                Tapi satu hal yang aku harap kamu tahu...
+                Sekarang sudah masuk <span class="highlight">1 Oktober</span>.
+                Bulan baru, hari baru, dan tentunya aku juga mau memulai bulan ini
+                dengan satu hal sederhana...
                 <br><br>
 
                 <span class="highlight">
-                    Aku benar-benar menghargai keberadaan kamu.
+                    Bilang terima kasih ke kamu. ❤️
                 </span>
+
                 <br><br>
 
-                Buat aku, kamu bukan cuma seseorang yang aku sayang.
-                Kamu adalah tempat aku berbagi cerita,
-                tempat aku bisa menjadi diriku sendiri,
-                seseorang yang bisa membuat hari biasa terasa lebih berarti.
+                Terima kasih karena sudah hadir di hidup aku.
+                Terima kasih karena sudah mau menemani aku,
+                mendengarkan cerita aku, bercanda sama aku,
+                dan menjadi seseorang yang selalu punya tempat spesial
+                di hati aku.
+                <br><br>
+
+                Mungkin aku nggak selalu bisa menunjukkan rasa sayang aku
+                dengan cara yang sempurna.
+                Kadang aku nyebelin, kadang banyak tingkah,
+                kadang terlalu banyak mikir juga.
+                <br><br>
+
+                Tapi dari semua itu,
+                ada satu hal yang nggak pernah berubah...
+                <br><br>
+
+                <span class="highlight">
+                    Aku sayang banget sama kamu.
+                </span>
+
+                <br><br>
+
+                Kamu bukan cuma seseorang yang aku cintai.
+                Kamu juga sudah menjadi tempat aku berbagi cerita,
+                tempat aku bercanda,
+                tempat aku bisa menjadi diri aku sendiri,
+                dan seseorang yang bisa membuat hari-hari biasa
+                terasa jauh lebih berarti.
                 <br><br>
 
                 Aku bersyukur bisa mengenal kamu.
-                Bersyukur pernah menemukan seseorang yang bisa membuat aku
-                merasakan banyak hal yang mungkin sebelumnya belum pernah aku rasakan.
+                Bersyukur karena dari sekian banyak orang di dunia ini,
+                aku bisa bertemu dengan kamu.
                 <br><br>
 
-                Kalau suatu hari aku lupa mengatakannya,
-                tolong ingat satu hal ini:
+                Dan untuk bulan Oktober ini,
+                aku cuma punya satu harapan...
                 <br><br>
 
                 <span class="highlight">
-                    Aku sayang kamu.
-                    Aku menghargai kamu.
-                    Dan aku berterima kasih karena kamu sudah menjadi bagian
-                    dari cerita hidup aku.
+                    Semoga kita punya lebih banyak cerita,
+                    lebih banyak tawa,
+                    lebih banyak momen indah,
+                    dan lebih banyak alasan untuk tetap saling sayang.
                 </span>
 
                 <div class="heart">❤️</div>
 
-                Aku nggak tahu perjalanan kita ke depannya akan seperti apa.
-                Tapi selama masih ada kesempatan untuk bersama,
-                aku ingin terus memberikan yang terbaik yang aku bisa.
+                Aku nggak berharap hubungan kita harus selalu sempurna.
+                Aku cuma ingin kita tetap saling mengerti,
+                saling menjaga,
+                saling menghargai,
+                dan tetap memilih satu sama lain.
                 <br><br>
 
-                Terima kasih sudah menjadi kamu.
-                Terima kasih sudah hadir.
-                Dan terima kasih untuk semua hal kecil maupun besar
-                yang sudah kamu berikan kepadaku.
+                Kalau nanti ada hari yang kurang baik,
+                semoga kita tetap ingat kenapa kita memulai semuanya.
+                <br><br>
+
+                Dan kalau suatu hari aku lupa mengatakannya,
+                ingat saja satu hal ini:
                 <br><br>
 
                 <span class="highlight">
-                    Pokoknya... kalau aku ditanya siapa yang paling ingin aku ucapkan
-                    terima kasih karena sudah hadir di hidupku,
-                    jawabannya adalah kamu.
+                    Kamu itu berarti banget buat aku.
+                    Aku menghargai kamu.
+                    Aku bersyukur punya kamu.
+                    Dan aku sayang kamu.
+                </span>
+
+                <br><br>
+
+                Jadi...
+                <br><br>
+
+                <span class="highlight">
+                    Happy 1 Oktober, cintaku. ❤️
+                </span>
+
+                <br><br>
+
+                Semoga bulan ini baik untuk kamu,
+                baik untuk aku,
+                dan tentunya baik untuk kita.
+                <br><br>
+
+                Terima kasih sudah menjadi bagian dari hidup aku.
+                <br><br>
+
+                Dan satu lagi...
+                <br><br>
+
+                <span class="highlight">
+                    Jangan pernah lupa kalau ada seseorang
+                    yang selalu sayang sama kamu. ❤️
                 </span>
 
             </p>
+
 
             <div class="tanda-tangan">
                 Dengan penuh sayang,<br>
@@ -267,69 +355,124 @@
 
     <script>
 
+        // ============================
+        // BUKA PESAN
+        // ============================
+
         function bukaPesan() {
 
-            const btn = document.querySelector('.btn-buka');
-            const pesan = document.getElementById('isiPesan');
+            const btn =
+                document.querySelector('.btn-buka');
 
-            btn.style.transition = "all 0.5s";
-            btn.style.opacity = "0";
+            const pesan =
+                document.getElementById('isiPesan');
+
+            btn.style.transition =
+                "all 0.5s";
+
+            btn.style.opacity =
+                "0";
 
             setTimeout(() => {
-                btn.style.display = "none";
+
+                btn.style.display =
+                    "none";
+
             }, 500);
 
+
             setTimeout(() => {
+
                 pesan.classList.add('show');
+
             }, 300);
+
         }
 
 
-        // Background hati
+        // ============================
+        // LOVE MELAYANG ACAK
+        // ============================
 
-        const canvas = document.getElementById("canvas");
-        const ctx = canvas.getContext("2d");
+        const canvas =
+            document.getElementById("canvas");
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        let particlesArray;
+        const ctx =
+            canvas.getContext("2d");
 
 
-        class HeartParticle {
+        canvas.width =
+            window.innerWidth;
+
+        canvas.height =
+            window.innerHeight;
+
+
+        let hearts = [];
+
+
+        class FloatingHeart {
 
             constructor() {
 
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height - 50;
+                this.x =
+                    Math.random() * canvas.width;
 
-                this.size = Math.random() * 5 + 1;
+                this.y =
+                    canvas.height +
+                    Math.random() * 100;
 
-                this.speedY = Math.random() * 1 - 0.5;
+                this.size =
+                    Math.random() * 18 + 8;
+
+                this.speed =
+                    Math.random() * 0.7 + 0.2;
+
+                this.opacity =
+                    Math.random() * 0.6 + 0.2;
+
+                this.swing =
+                    Math.random() * 2 + 0.5;
+
+                this.angle =
+                    Math.random() * Math.PI * 2;
+
+                this.rotation =
+                    (Math.random() - 0.5) * 0.02;
 
                 this.color =
-                    "rgba(255, 255, 255," +
-                    Math.random() +
-                    ")";
-
+                    Math.random() > 0.5
+                    ? "#ff8fbc"
+                    : "#ffd1e3";
             }
 
 
             update() {
 
-                this.y -= this.speedY;
+                this.y -= this.speed;
+
+                this.angle += 0.02;
 
                 this.x +=
-                    Math.sin(this.y * 0.01) * 0.5;
+                    Math.sin(this.angle) *
+                    this.swing *
+                    0.15;
 
 
-                if (this.y < 0 - this.size) {
+                if (this.y < -50) {
 
                     this.y =
-                        canvas.height + this.size;
+                        canvas.height + 50;
 
                     this.x =
-                        Math.random() * canvas.width;
+                        Math.random() *
+                        canvas.width;
+
+                    this.size =
+                        Math.random() * 18 + 8;
+
+                    this.opacity =
+                        Math.random() * 0.6 + 0.2;
                 }
 
             }
@@ -337,41 +480,94 @@
 
             draw() {
 
-                ctx.fillStyle = this.color;
+                ctx.save();
+
+                ctx.translate(
+                    this.x,
+                    this.y
+                );
+
+                ctx.globalAlpha =
+                    this.opacity;
+
+                ctx.fillStyle =
+                    this.color;
+
+
+                const size =
+                    this.size;
+
+
+                // Bentuk LOVE ❤️
 
                 ctx.beginPath();
 
-                ctx.arc(
-                    this.x,
-                    this.y,
-                    this.size,
+                ctx.moveTo(
                     0,
-                    Math.PI * 2
+                    size * 0.35
+                );
+
+                ctx.bezierCurveTo(
+                    -size * 0.8,
+                    -size * 0.1,
+                    -size * 0.55,
+                    -size * 0.7,
+                    0,
+                    -size * 0.25
+                );
+
+                ctx.bezierCurveTo(
+                    size * 0.55,
+                    -size * 0.7,
+                    size * 0.8,
+                    -size * 0.1,
+                    0,
+                    size * 0.35
                 );
 
                 ctx.fill();
 
+
+                ctx.restore();
+
             }
 
         }
 
+
+        // Jumlah love
 
         function init() {
 
-            particlesArray = [];
+            hearts = [];
 
-            let jumlah = 100;
+            const jumlah =
+                window.innerWidth < 600
+                ? 35
+                : 60;
 
-            for (let i = 0; i < jumlah; i++) {
 
-                particlesArray.push(
-                    new HeartParticle()
-                );
+            for (
+                let i = 0;
+                i < jumlah;
+                i++
+            ) {
+
+                const heart =
+                    new FloatingHeart();
+
+                heart.y =
+                    Math.random() *
+                    canvas.height;
+
+                hearts.push(heart);
 
             }
 
         }
 
+
+        // Animasi
 
         function animate() {
 
@@ -382,26 +578,33 @@
                 canvas.height
             );
 
+
             for (
                 let i = 0;
-                i < particlesArray.length;
+                i < hearts.length;
                 i++
             ) {
 
-                particlesArray[i].update();
+                hearts[i].update();
 
-                particlesArray[i].draw();
+                hearts[i].draw();
 
             }
 
-            requestAnimationFrame(animate);
+
+            requestAnimationFrame(
+                animate
+            );
 
         }
 
 
         init();
+
         animate();
 
+
+        // Resize
 
         window.addEventListener(
             "resize",
