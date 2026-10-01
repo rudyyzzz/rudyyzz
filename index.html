@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Untuk Kesayanganku ❤️</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -16,25 +17,22 @@
         }
 
         body {
-
             background:
                 radial-gradient(
                     circle at 20% 20%,
-                    rgba(255, 105, 180, 0.45),
+                    rgba(255, 105, 180, 0.35),
                     transparent 30%
                 ),
-
                 radial-gradient(
                     circle at 80% 80%,
-                    rgba(255, 20, 147, 0.35),
+                    rgba(255, 20, 147, 0.25),
                     transparent 35%
                 ),
-
                 linear-gradient(
                     135deg,
                     #160b20,
                     #3b163f,
-                    #6b245d,
+                    #5a214f,
                     #24152f
                 );
 
@@ -43,25 +41,21 @@
             display: flex;
             justify-content: center;
 
-            font-family:
-                'Poppins',
-                sans-serif;
+            font-family: 'Poppins', sans-serif;
 
             overflow-y: auto;
 
             color: white;
 
-            padding:
-                40px 20px;
+            padding: 40px 20px;
         }
 
 
-        /* ============================
-           CANVAS
-        ============================ */
+        /* =========================
+           CANVAS LOVE
+        ========================= */
 
         #canvas {
-
             position: fixed;
 
             top: 0;
@@ -76,12 +70,11 @@
         }
 
 
-        /* ============================
+        /* =========================
            CONTAINER
-        ============================ */
+        ========================= */
 
         .container {
-
             position: relative;
 
             z-index: 10;
@@ -98,8 +91,7 @@
 
             opacity: 0;
 
-            animation:
-                fadeIn 2s ease forwards;
+            animation: fadeIn 2s ease forwards;
 
             animation-delay: 1s;
         }
@@ -114,34 +106,26 @@
         }
 
 
-        /* ============================
+        /* =========================
            JUDUL
-        ============================ */
+        ========================= */
 
         h1 {
-
-            font-family:
-                'Great Vibes',
-                cursive;
+            font-family: 'Great Vibes', cursive;
 
             font-size: 4rem;
 
             margin-bottom: 20px;
 
             text-shadow:
-
-                0 0 10px
-                rgba(255, 180, 220, 0.7),
-
-                0 0 25px
-                rgba(255, 105, 180, 0.3);
+                0 0 10px rgba(255, 180, 220, 0.7),
+                0 0 25px rgba(255, 105, 180, 0.3);
 
             color: #ffd6e8;
         }
 
 
         .subjudul {
-
             font-size: 1rem;
 
             opacity: 0.85;
@@ -150,23 +134,18 @@
         }
 
 
-        /* ============================
+        /* =========================
            BUTTON
-        ============================ */
+        ========================= */
 
         .btn-buka {
+            background: rgba(255, 255, 255, 0.05);
 
-            background:
-                rgba(255, 255, 255, 0.08);
-
-            border:
-                2px solid
-                rgba(255, 210, 230, 0.6);
+            border: 2px solid rgba(255, 210, 230, 0.6);
 
             color: white;
 
-            padding:
-                15px 40px;
+            padding: 15px 40px;
 
             font-size: 1.2rem;
 
@@ -174,8 +153,7 @@
 
             cursor: pointer;
 
-            transition:
-                all 0.3s ease;
+            transition: all 0.3s ease;
 
             letter-spacing: 2px;
 
@@ -186,39 +164,28 @@
 
 
         .btn-buka:hover {
+            background: #ffd6e8;
 
-            background:
-                #ffd6e8;
-
-            color:
-                #3b163f;
+            color: #3b163f;
 
             box-shadow:
-
-                0 0 20px
-                rgba(255, 105, 180, 0.6),
-
-                0 0 40px
-                rgba(255, 105, 180, 0.3);
+                0 0 20px rgba(255, 105, 180, 0.6),
+                0 0 40px rgba(255, 105, 180, 0.3);
         }
 
 
-        /* ============================
-           PESAN
-        ============================ */
+        /* =========================
+           ISI PESAN
+        ========================= */
 
         .isi-pesan {
-
             display: none;
 
-            background:
-                rgba(255, 190, 220, 0.10);
+            background: rgba(255, 190, 220, 0.10);
 
-            backdrop-filter:
-                blur(12px);
+            backdrop-filter: blur(12px);
 
-            -webkit-backdrop-filter:
-                blur(12px);
+            -webkit-backdrop-filter: blur(12px);
 
             padding: 35px;
 
@@ -229,117 +196,161 @@
             line-height: 1.9;
 
             box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(255, 105, 180, 0.08);
 
-                0 10px 30px
-                rgba(0, 0, 0, 0.3),
-
-                0 0 30px
-                rgba(255, 105, 180, 0.08);
-
-            border:
-                1px solid
-                rgba(255, 210, 230, 0.2);
+            border: 1px solid rgba(255, 210, 230, 0.2);
 
             text-align: left;
         }
 
 
         .isi-pesan.show {
-
             display: block;
 
-            animation:
-                showText 2s ease forwards;
+            animation: showText 2s ease forwards;
         }
 
 
         @keyframes showText {
 
             from {
-
                 opacity: 0;
 
-                transform:
-                    translateY(20px);
+                transform: translateY(20px);
             }
 
             to {
-
                 opacity: 1;
 
-                transform:
-                    translateY(0);
+                transform: translateY(0);
             }
 
         }
 
 
         .isi-pesan p {
-
             font-size: 1rem;
         }
 
 
+        /* =========================
+           HIGHLIGHT
+        ========================= */
+
         .highlight {
+            color: #ffd1e5;
 
-            color:
-                #ffd1e5;
-
-            font-weight:
-                600;
+            font-weight: 600;
 
             text-shadow:
-
-                0 0 8px
-                rgba(255, 105, 180, 0.35);
+                0 0 8px rgba(255, 105, 180, 0.35);
         }
 
 
-        /* ============================
-           TANDA TANGAN
-        ============================ */
+        /* =========================
+           FOTO
+        ========================= */
 
-        .tanda-tangan {
-
-            margin-top: 30px;
-
-            font-family:
-                'Great Vibes',
-                cursive;
-
-            font-size: 2.3rem;
-
-            color:
-                #ffd6e8;
-
+        .foto-title {
             text-align: center;
 
-            text-shadow:
+            font-family: 'Great Vibes', cursive;
 
-                0 0 10px
-                rgba(255, 105, 180, 0.4);
+            font-size: 2.5rem;
+
+            color: #ffd6e8;
+
+            margin-top: 35px;
+
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 0 10px rgba(255, 105, 180, 0.5);
         }
 
 
-        /* ============================
-           LOVE DI DALAM PESAN
-        ============================ */
+        .foto-container {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 25px;
+
+            align-items: center;
+
+            margin-top: 20px;
+        }
+
+
+        .foto-box {
+            width: 100%;
+
+            padding: 10px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(255, 210, 230, 0.3);
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.35),
+                0 0 25px rgba(255, 105, 180, 0.12);
+
+            transition: 0.4s ease;
+        }
+
+
+        .foto-box:hover {
+            transform: scale(1.02);
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                0 0 35px rgba(255, 105, 180, 0.25);
+        }
+
+
+        .foto-box img {
+            display: block;
+
+            width: 100%;
+
+            max-height: 500px;
+
+            object-fit: cover;
+
+            border-radius: 15px;
+        }
+
+
+        .foto-caption {
+            text-align: center;
+
+            padding: 10px 5px 5px;
+
+            color: #ffd6e8;
+
+            font-size: 0.9rem;
+        }
+
+
+        /* =========================
+           HEART
+        ========================= */
 
         .heart {
-
             text-align: center;
 
             font-size: 2rem;
 
             margin: 15px 0;
 
-            animation:
-                denyut 1.5s infinite;
+            animation: denyut 1.5s infinite;
 
             filter:
                 drop-shadow(
-                    0 0 8px
-                    rgba(255, 105, 180, 0.6)
+                    0 0 8px rgba(255, 105, 180, 0.6)
                 );
         }
 
@@ -347,45 +358,58 @@
         @keyframes denyut {
 
             0%, 100% {
-                transform:
-                    scale(1);
+                transform: scale(1);
             }
 
             50% {
-                transform:
-                    scale(1.2);
+                transform: scale(1.2);
             }
 
         }
 
 
-        /* ============================
-           HP
-        ============================ */
+        /* =========================
+           TANDA TANGAN
+        ========================= */
+
+        .tanda-tangan {
+            margin-top: 30px;
+
+            font-family: 'Great Vibes', cursive;
+
+            font-size: 2.3rem;
+
+            color: #ffd6e8;
+
+            text-align: center;
+
+            text-shadow:
+                0 0 10px rgba(255, 105, 180, 0.4);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 600px) {
 
             h1 {
-
-                font-size:
-                    3.2rem;
+                font-size: 3.2rem;
             }
-
 
             .isi-pesan {
-
-                padding:
-                    25px;
+                padding: 25px;
             }
 
-
             .btn-buka {
+                padding: 13px 30px;
 
-                padding:
-                    13px 30px;
+                font-size: 1rem;
+            }
 
-                font-size:
-                    1rem;
+            .foto-title {
+                font-size: 2.2rem;
             }
 
         }
@@ -397,9 +421,9 @@
 <body>
 
 
-    <!-- ============================
-         FOTO LOVE MELAYANG
-    ============================ -->
+    <!-- =========================
+         LOVE MELAYANG
+    ========================= -->
 
     <canvas id="canvas"></canvas>
 
@@ -407,31 +431,32 @@
     <div class="container">
 
 
+        <!-- JUDUL -->
+
         <h1>
             untuk my cintah putri ❤️
         </h1>
 
 
         <div class="subjudul">
-
             edisi 1 oktober nih cintahhh...
-
         </div>
 
+
+        <!-- BUTTON -->
 
         <button
             class="btn-buka"
             onclick="bukaPesan()"
         >
-
-            Buka Pesan Ini yah♥️
-
+            Buka Pesan Ini yah ♥️
         </button>
 
 
-        <!-- ============================
+
+        <!-- =========================
              ISI PESAN
-        ============================ -->
+        ========================= -->
 
         <div
             class="isi-pesan"
@@ -440,7 +465,9 @@
 
             <p>
 
-                Untuk kesayangan, cintaku, dan seseorang yang sangat berarti buat aku...
+                Untuk kesayangan, cintaku,
+                dan seseorang yang sangat berarti
+                buat aku...
 
                 <br><br>
 
@@ -450,35 +477,39 @@
                     1 Oktober
                 </span>.
 
-                Bulan baru, hari baru, dan tentunya aku juga mau memulai bulan ini
-                dengan satu hal sederhana...
+                Bulan baru, hari baru,
+                dan tentunya aku juga mau
+                memulai bulan ini dengan satu
+                hal sederhana...
 
                 <br><br>
 
 
                 <span class="highlight">
-
                     Bilang terima kasih ke kamu. ❤️
-
                 </span>
 
                 <br><br>
 
 
-                Terima kasih karena sudah hadir di hidup aku.
+                Terima kasih karena sudah hadir
+                di hidup aku.
 
-                Terima kasih karena sudah mau menemani aku,
-                mendengarkan cerita aku, bercanda sama aku,
-                dan menjadi seseorang yang selalu punya tempat spesial
+                Terima kasih karena sudah mau
+                menemani aku, mendengarkan cerita aku,
+                bercanda sama aku, dan menjadi seseorang
+                yang selalu punya tempat spesial
                 di hati aku.
 
                 <br><br>
 
 
-                Mungkin aku nggak selalu bisa menunjukkan rasa sayang aku
+                Mungkin aku nggak selalu bisa
+                menunjukkan rasa sayang aku
                 dengan cara yang sempurna.
 
-                Kadang aku nyebelin, kadang banyak tingkah,
+                Kadang aku nyebelin,
+                kadang banyak tingkah,
                 kadang terlalu banyak mikir juga.
 
                 <br><br>
@@ -491,28 +522,30 @@
 
 
                 <span class="highlight">
-
                     Aku sayang banget sama kamu.
-
                 </span>
 
                 <br><br>
 
 
-                Kamu bukan cuma seseorang yang aku cintai.
+                Kamu bukan cuma seseorang
+                yang aku cintai.
 
-                Kamu juga sudah menjadi tempat aku berbagi cerita,
+                Kamu juga sudah menjadi tempat
+                aku berbagi cerita,
                 tempat aku bercanda,
                 tempat aku bisa menjadi diri aku sendiri,
-                dan seseorang yang bisa membuat hari-hari biasa
-                terasa jauh lebih berarti.
+                dan seseorang yang bisa membuat
+                hari-hari biasa terasa jauh
+                lebih berarti.
 
                 <br><br>
 
 
                 Aku bersyukur bisa mengenal kamu.
 
-                Bersyukur karena dari sekian banyak orang di dunia ini,
+                Bersyukur karena dari sekian banyak
+                orang di dunia ini,
                 aku bisa bertemu dengan kamu.
 
                 <br><br>
@@ -529,21 +562,22 @@
                     Semoga kita punya lebih banyak cerita,
                     lebih banyak tawa,
                     lebih banyak momen indah,
-                    dan lebih banyak alasan untuk tetap saling sayang.
+                    dan lebih banyak alasan
+                    untuk tetap saling sayang.
 
                 </span>
 
 
                 <div class="heart">
-
                     ❤️
-
                 </div>
 
 
-                Aku nggak berharap hubungan kita harus selalu sempurna.
+                Aku nggak berharap hubungan kita
+                harus selalu sempurna.
 
-                Aku cuma ingin kita tetap saling mengerti,
+                Aku cuma ingin kita tetap
+                saling mengerti,
                 saling menjaga,
                 saling menghargai,
                 dan tetap memilih satu sama lain.
@@ -552,12 +586,14 @@
 
 
                 Kalau nanti ada hari yang kurang baik,
-                semoga kita tetap ingat kenapa kita memulai semuanya.
+                semoga kita tetap ingat
+                kenapa kita memulai semuanya.
 
                 <br><br>
 
 
-                Dan kalau suatu hari aku lupa mengatakannya,
+                Dan kalau suatu hari aku lupa
+                mengatakannya,
                 ingat saja satu hal ini:
 
                 <br><br>
@@ -566,8 +602,11 @@
                 <span class="highlight">
 
                     Kamu itu berarti banget buat aku.
+
                     Aku menghargai kamu.
+
                     Aku bersyukur punya kamu.
+
                     Dan aku sayang kamu.
 
                 </span>
@@ -581,9 +620,7 @@
 
 
                 <span class="highlight">
-
                     Happy 1 Oktober, cintaku. ❤️
-
                 </span>
 
                 <br><br>
@@ -596,7 +633,8 @@
                 <br><br>
 
 
-                Terima kasih sudah menjadi bagian dari hidup aku.
+                Terima kasih sudah menjadi bagian
+                dari hidup aku.
 
                 <br><br>
 
@@ -616,9 +654,70 @@
             </p>
 
 
+
+            <!-- =========================
+                 FOTO KALIAN
+            ========================= -->
+
+            <div class="foto-title">
+                Untuk Kamu ❤️
+            </div>
+
+
+            <div class="foto-container">
+
+
+                <!-- FOTO 1 -->
+
+                <div class="foto-box">
+
+                    <img
+                        src="./Bini%201.jpg"
+                        alt="Bini 1"
+                    >
+
+                    <div class="foto-caption">
+                        Satu foto yang selalu bikin aku senyum ❤️
+                    </div>
+
+                </div>
+
+
+
+                <!-- FOTO 2 -->
+
+                <div class="foto-box">
+
+                    <img
+                        src="./Bini%202.jpg"
+                        alt="Bini 2"
+                    >
+
+                    <div class="foto-caption">
+                        Dan satu lagi foto kesayanganku ❤️
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- HEART -->
+
+            <div class="heart">
+                ❤️
+            </div>
+
+
+
+            <!-- TANDA TANGAN -->
+
             <div class="tanda-tangan">
 
                 Dengan penuh sayang,
+
                 <br>
 
                 Aku ❤️
@@ -631,25 +730,25 @@
     </div>
 
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
     <script>
 
 
-        // ============================
-        // BUKA PESAN
-        // ============================
+        /* =========================
+           BUKA PESAN
+        ========================= */
 
         function bukaPesan() {
 
             const btn =
-                document.querySelector(
-                    '.btn-buka'
-                );
-
+                document.querySelector('.btn-buka');
 
             const pesan =
-                document.getElementById(
-                    'isiPesan'
-                );
+                document.getElementById('isiPesan');
 
 
             btn.style.transition =
@@ -670,9 +769,7 @@
 
             setTimeout(() => {
 
-                pesan.classList.add(
-                    'show'
-                );
+                pesan.classList.add('show');
 
             }, 300);
 
@@ -680,48 +777,16 @@
 
 
 
-        // ============================
-        // FOTO BINI
-        // ============================
-
-        const foto1 =
-            new Image();
-
-        const foto2 =
-            new Image();
-
-
-        foto1.src =
-            "./bini 1.jpg";
-
-
-        foto2.src =
-            "./bini 2.jpg";
-
-
-        const fotoBini = [
-
-            foto1,
-            foto2
-
-        ];
-
-
-
-        // ============================
-        // CANVAS
-        // ============================
+        /* =========================
+           CANVAS
+        ========================= */
 
         const canvas =
-            document.getElementById(
-                "canvas"
-            );
+            document.getElementById("canvas");
 
 
         const ctx =
-            canvas.getContext(
-                "2d"
-            );
+            canvas.getContext("2d");
 
 
         canvas.width =
@@ -732,19 +797,19 @@
             window.innerHeight;
 
 
+
         let hearts = [];
 
 
 
-        // ============================
-        // FOTO LOVE
-        // ============================
+        /* =========================
+           FLOATING HEART
+        ========================= */
 
         class FloatingHeart {
 
 
             constructor() {
-
 
                 this.x =
                     Math.random() *
@@ -753,28 +818,23 @@
 
                 this.y =
                     canvas.height +
-                    Math.random() *
-                    canvas.height;
+                    Math.random() * 100;
 
 
                 this.size =
-                    Math.random() *
-                    55 + 45;
+                    Math.random() * 18 + 8;
 
 
                 this.speed =
-                    Math.random() *
-                    0.5 + 0.3;
+                    Math.random() * 0.7 + 0.2;
 
 
                 this.opacity =
-                    Math.random() *
-                    0.35 + 0.55;
+                    Math.random() * 0.6 + 0.2;
 
 
                 this.swing =
-                    Math.random() *
-                    2 + 0.5;
+                    Math.random() * 2 + 0.5;
 
 
                 this.angle =
@@ -782,13 +842,10 @@
                     Math.PI * 2;
 
 
-                this.image =
-                    fotoBini[
-                        Math.floor(
-                            Math.random() *
-                            fotoBini.length
-                        )
-                    ];
+                this.color =
+                    Math.random() > 0.5
+                    ? "#ff8fbc"
+                    : "#ffd1e3";
 
             }
 
@@ -796,31 +853,23 @@
 
             update() {
 
-
-                this.y -=
-                    this.speed;
+                this.y -= this.speed;
 
 
-                this.angle +=
-                    0.02;
+                this.angle += 0.02;
 
 
                 this.x +=
-                    Math.sin(
-                        this.angle
-                    ) *
+                    Math.sin(this.angle) *
                     this.swing *
                     0.15;
 
 
-                if (
-                    this.y < -100
-                ) {
 
+                if (this.y < -50) {
 
                     this.y =
-                        canvas.height +
-                        100;
+                        canvas.height + 50;
 
 
                     this.x =
@@ -829,17 +878,11 @@
 
 
                     this.size =
-                        Math.random() *
-                        55 + 45;
+                        Math.random() * 18 + 8;
 
 
-                    this.image =
-                        fotoBini[
-                            Math.floor(
-                                Math.random() *
-                                fotoBini.length
-                            )
-                        ];
+                    this.opacity =
+                        Math.random() * 0.6 + 0.2;
 
                 }
 
@@ -848,16 +891,6 @@
 
 
             draw() {
-
-
-                if (
-                    !this.image.complete
-                ) {
-
-                    return;
-
-                }
-
 
                 ctx.save();
 
@@ -872,14 +905,14 @@
                     this.opacity;
 
 
+                ctx.fillStyle =
+                    this.color;
+
+
                 const size =
                     this.size;
 
 
-
-                // ============================
-                // BENTUK LOVE
-                // ============================
 
                 ctx.beginPath();
 
@@ -891,7 +924,6 @@
 
 
                 ctx.bezierCurveTo(
-
                     -size * 0.8,
                     -size * 0.1,
 
@@ -900,12 +932,10 @@
 
                     0,
                     -size * 0.25
-
                 );
 
 
                 ctx.bezierCurveTo(
-
                     size * 0.55,
                     -size * 0.7,
 
@@ -914,66 +944,10 @@
 
                     0,
                     size * 0.35
-
                 );
 
 
-                ctx.closePath();
-
-
-                // POTONG FOTO MENJADI LOVE
-
-                ctx.clip();
-
-
-
-                // ============================
-                // FOTO
-                // ============================
-
-                const imgRatio =
-                    this.image.width /
-                    this.image.height;
-
-
-                let drawWidth =
-                    size;
-
-
-                let drawHeight =
-                    size;
-
-
-                if (
-                    imgRatio > 1
-                ) {
-
-                    drawHeight =
-                        size /
-                        imgRatio;
-
-                } else {
-
-                    drawWidth =
-                        size *
-                        imgRatio;
-
-                }
-
-
-                ctx.drawImage(
-
-                    this.image,
-
-                    -drawWidth / 2,
-
-                    -drawHeight / 2,
-
-                    drawWidth,
-
-                    drawHeight
-
-                );
+                ctx.fill();
 
 
                 ctx.restore();
@@ -984,23 +958,19 @@
 
 
 
-        // ============================
-        // JUMLAH FOTO
-        // ============================
+        /* =========================
+           INIT HEARTS
+        ========================= */
 
         function init() {
-
 
             hearts = [];
 
 
             const jumlah =
-
                 window.innerWidth < 600
-
-                ? 10
-
-                : 18;
+                ? 35
+                : 60;
 
 
             for (
@@ -1008,7 +978,6 @@
                 i < jumlah;
                 i++
             ) {
-
 
                 const heart =
                     new FloatingHeart();
@@ -1019,9 +988,7 @@
                     canvas.height;
 
 
-                hearts.push(
-                    heart
-                );
+                hearts.push(heart);
 
             }
 
@@ -1029,21 +996,17 @@
 
 
 
-        // ============================
-        // ANIMASI
-        // ============================
+        /* =========================
+           ANIMATE
+        ========================= */
 
         function animate() {
 
-
             ctx.clearRect(
-
                 0,
                 0,
-
                 canvas.width,
                 canvas.height
-
             );
 
 
@@ -1053,9 +1016,7 @@
                 i++
             ) {
 
-
                 hearts[i].update();
-
 
                 hearts[i].draw();
 
@@ -1076,16 +1037,13 @@
 
 
 
-        // ============================
-        // RESIZE
-        // ============================
+        /* =========================
+           RESIZE
+        ========================= */
 
         window.addEventListener(
-
             "resize",
-
             () => {
-
 
                 canvas.width =
                     window.innerWidth;
@@ -1098,11 +1056,9 @@
                 init();
 
             }
-
         );
 
     </script>
-
 
 </body>
 </html>
