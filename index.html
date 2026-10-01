@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -15,345 +16,623 @@
         }
 
         body {
+
             background:
-                radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.35), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(255, 20, 147, 0.25), transparent 35%),
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(255, 105, 180, 0.45),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 80% 80%,
+                    rgba(255, 20, 147, 0.35),
+                    transparent 35%
+                ),
+
                 linear-gradient(
                     135deg,
                     #160b20,
                     #3b163f,
-                    #5a214f,
+                    #6b245d,
                     #24152f
                 );
 
             min-height: 100vh;
+
             display: flex;
             justify-content: center;
-            font-family: 'Poppins', sans-serif;
+
+            font-family:
+                'Poppins',
+                sans-serif;
+
             overflow-y: auto;
+
             color: white;
-            padding: 40px 20px;
+
+            padding:
+                40px 20px;
         }
 
-        /* CANVAS LOVE */
+
+        /* ============================
+           CANVAS
+        ============================ */
+
         #canvas {
+
             position: fixed;
+
             top: 0;
             left: 0;
+
             width: 100%;
             height: 100%;
+
             z-index: 1;
+
             pointer-events: none;
         }
 
+
+        /* ============================
+           CONTAINER
+        ============================ */
+
         .container {
+
             position: relative;
+
             z-index: 10;
+
             text-align: center;
+
             max-width: 650px;
+
             width: 100%;
+
             padding: 20px;
+
             margin: auto;
+
             opacity: 0;
-            animation: fadeIn 2s ease forwards;
+
+            animation:
+                fadeIn 2s ease forwards;
+
             animation-delay: 1s;
         }
 
+
         @keyframes fadeIn {
+
             to {
                 opacity: 1;
             }
+
         }
 
+
+        /* ============================
+           JUDUL
+        ============================ */
+
         h1 {
-            font-family: 'Great Vibes', cursive;
+
+            font-family:
+                'Great Vibes',
+                cursive;
+
             font-size: 4rem;
+
             margin-bottom: 20px;
+
             text-shadow:
-                0 0 10px rgba(255, 180, 220, 0.7),
-                0 0 25px rgba(255, 105, 180, 0.3);
+
+                0 0 10px
+                rgba(255, 180, 220, 0.7),
+
+                0 0 25px
+                rgba(255, 105, 180, 0.3);
 
             color: #ffd6e8;
         }
 
+
         .subjudul {
+
             font-size: 1rem;
+
             opacity: 0.85;
+
             margin-bottom: 10px;
         }
 
+
+        /* ============================
+           BUTTON
+        ============================ */
+
         .btn-buka {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 210, 230, 0.6);
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            border:
+                2px solid
+                rgba(255, 210, 230, 0.6);
+
             color: white;
-            padding: 15px 40px;
+
+            padding:
+                15px 40px;
+
             font-size: 1.2rem;
+
             border-radius: 50px;
+
             cursor: pointer;
-            transition: all 0.3s ease;
+
+            transition:
+                all 0.3s ease;
+
             letter-spacing: 2px;
+
             text-transform: uppercase;
+
             margin-top: 20px;
         }
 
+
         .btn-buka:hover {
-            background: #ffd6e8;
-            color: #3b163f;
+
+            background:
+                #ffd6e8;
+
+            color:
+                #3b163f;
+
             box-shadow:
-                0 0 20px rgba(255, 105, 180, 0.6),
-                0 0 40px rgba(255, 105, 180, 0.3);
+
+                0 0 20px
+                rgba(255, 105, 180, 0.6),
+
+                0 0 40px
+                rgba(255, 105, 180, 0.3);
         }
 
+
+        /* ============================
+           PESAN
+        ============================ */
+
         .isi-pesan {
+
             display: none;
 
-            background: rgba(255, 190, 220, 0.10);
+            background:
+                rgba(255, 190, 220, 0.10);
 
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
 
             padding: 35px;
+
             border-radius: 20px;
+
             margin-top: 30px;
 
             line-height: 1.9;
 
             box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.3),
-                0 0 30px rgba(255, 105, 180, 0.08);
 
-            border: 1px solid rgba(255, 210, 230, 0.2);
+                0 10px 30px
+                rgba(0, 0, 0, 0.3),
+
+                0 0 30px
+                rgba(255, 105, 180, 0.08);
+
+            border:
+                1px solid
+                rgba(255, 210, 230, 0.2);
 
             text-align: left;
         }
 
+
         .isi-pesan.show {
+
             display: block;
-            animation: showText 2s ease forwards;
+
+            animation:
+                showText 2s ease forwards;
         }
 
+
         @keyframes showText {
+
             from {
+
                 opacity: 0;
-                transform: translateY(20px);
+
+                transform:
+                    translateY(20px);
             }
 
             to {
+
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
             }
+
         }
 
+
         .isi-pesan p {
+
             font-size: 1rem;
         }
 
+
         .highlight {
-            color: #ffd1e5;
-            font-weight: 600;
+
+            color:
+                #ffd1e5;
+
+            font-weight:
+                600;
 
             text-shadow:
-                0 0 8px rgba(255, 105, 180, 0.35);
+
+                0 0 8px
+                rgba(255, 105, 180, 0.35);
         }
+
+
+        /* ============================
+           TANDA TANGAN
+        ============================ */
 
         .tanda-tangan {
+
             margin-top: 30px;
-            font-family: 'Great Vibes', cursive;
+
+            font-family:
+                'Great Vibes',
+                cursive;
+
             font-size: 2.3rem;
-            color: #ffd6e8;
+
+            color:
+                #ffd6e8;
+
             text-align: center;
 
             text-shadow:
-                0 0 10px rgba(255, 105, 180, 0.4);
+
+                0 0 10px
+                rgba(255, 105, 180, 0.4);
         }
+
+
+        /* ============================
+           LOVE DI DALAM PESAN
+        ============================ */
 
         .heart {
+
             text-align: center;
+
             font-size: 2rem;
+
             margin: 15px 0;
 
-            animation: denyut 1.5s infinite;
+            animation:
+                denyut 1.5s infinite;
 
             filter:
-                drop-shadow(0 0 8px rgba(255, 105, 180, 0.6));
+                drop-shadow(
+                    0 0 8px
+                    rgba(255, 105, 180, 0.6)
+                );
         }
 
+
         @keyframes denyut {
+
             0%, 100% {
-                transform: scale(1);
+                transform:
+                    scale(1);
             }
 
             50% {
-                transform: scale(1.2);
+                transform:
+                    scale(1.2);
             }
+
         }
+
+
+        /* ============================
+           HP
+        ============================ */
 
         @media (max-width: 600px) {
 
             h1 {
-                font-size: 3.2rem;
+
+                font-size:
+                    3.2rem;
             }
+
 
             .isi-pesan {
-                padding: 25px;
+
+                padding:
+                    25px;
             }
 
+
             .btn-buka {
-                padding: 13px 30px;
-                font-size: 1rem;
+
+                padding:
+                    13px 30px;
+
+                font-size:
+                    1rem;
             }
+
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- LOVE MELAYANG -->
+
+    <!-- ============================
+         FOTO LOVE MELAYANG
+    ============================ -->
+
     <canvas id="canvas"></canvas>
+
 
     <div class="container">
 
-        <h1>untuk my cintah putri ❤️</h1>
+
+        <h1>
+            untuk my cintah putri ❤️
+        </h1>
+
 
         <div class="subjudul">
+
             edisi 1 oktober nih cintahhh...
+
         </div>
 
-        <button class="btn-buka" onclick="bukaPesan()">
+
+        <button
+            class="btn-buka"
+            onclick="bukaPesan()"
+        >
+
             Buka Pesan Ini yah♥️
+
         </button>
 
 
-        <!-- ISI PESAN -->
-        <div class="isi-pesan" id="isiPesan">
+        <!-- ============================
+             ISI PESAN
+        ============================ -->
+
+        <div
+            class="isi-pesan"
+            id="isiPesan"
+        >
 
             <p>
 
                 Untuk kesayangan, cintaku, dan seseorang yang sangat berarti buat aku...
+
                 <br><br>
 
-                Sekarang sudah masuk <span class="highlight">1 Oktober</span>.
+
+                Sekarang sudah masuk
+                <span class="highlight">
+                    1 Oktober
+                </span>.
+
                 Bulan baru, hari baru, dan tentunya aku juga mau memulai bulan ini
                 dengan satu hal sederhana...
+
                 <br><br>
 
+
                 <span class="highlight">
+
                     Bilang terima kasih ke kamu. ❤️
+
                 </span>
 
                 <br><br>
 
+
                 Terima kasih karena sudah hadir di hidup aku.
+
                 Terima kasih karena sudah mau menemani aku,
                 mendengarkan cerita aku, bercanda sama aku,
                 dan menjadi seseorang yang selalu punya tempat spesial
                 di hati aku.
+
                 <br><br>
+
 
                 Mungkin aku nggak selalu bisa menunjukkan rasa sayang aku
                 dengan cara yang sempurna.
+
                 Kadang aku nyebelin, kadang banyak tingkah,
                 kadang terlalu banyak mikir juga.
+
                 <br><br>
+
 
                 Tapi dari semua itu,
                 ada satu hal yang nggak pernah berubah...
+
                 <br><br>
 
+
                 <span class="highlight">
+
                     Aku sayang banget sama kamu.
+
                 </span>
 
                 <br><br>
 
+
                 Kamu bukan cuma seseorang yang aku cintai.
+
                 Kamu juga sudah menjadi tempat aku berbagi cerita,
                 tempat aku bercanda,
                 tempat aku bisa menjadi diri aku sendiri,
                 dan seseorang yang bisa membuat hari-hari biasa
                 terasa jauh lebih berarti.
+
                 <br><br>
 
+
                 Aku bersyukur bisa mengenal kamu.
+
                 Bersyukur karena dari sekian banyak orang di dunia ini,
                 aku bisa bertemu dengan kamu.
+
                 <br><br>
+
 
                 Dan untuk bulan Oktober ini,
                 aku cuma punya satu harapan...
+
                 <br><br>
 
+
                 <span class="highlight">
+
                     Semoga kita punya lebih banyak cerita,
                     lebih banyak tawa,
                     lebih banyak momen indah,
                     dan lebih banyak alasan untuk tetap saling sayang.
+
                 </span>
 
-                <div class="heart">❤️</div>
+
+                <div class="heart">
+
+                    ❤️
+
+                </div>
+
 
                 Aku nggak berharap hubungan kita harus selalu sempurna.
+
                 Aku cuma ingin kita tetap saling mengerti,
                 saling menjaga,
                 saling menghargai,
                 dan tetap memilih satu sama lain.
+
                 <br><br>
+
 
                 Kalau nanti ada hari yang kurang baik,
                 semoga kita tetap ingat kenapa kita memulai semuanya.
+
                 <br><br>
+
 
                 Dan kalau suatu hari aku lupa mengatakannya,
                 ingat saja satu hal ini:
+
                 <br><br>
 
+
                 <span class="highlight">
+
                     Kamu itu berarti banget buat aku.
                     Aku menghargai kamu.
                     Aku bersyukur punya kamu.
                     Dan aku sayang kamu.
+
                 </span>
 
                 <br><br>
+
 
                 Jadi...
+
                 <br><br>
 
+
                 <span class="highlight">
+
                     Happy 1 Oktober, cintaku. ❤️
+
                 </span>
 
                 <br><br>
+
 
                 Semoga bulan ini baik untuk kamu,
                 baik untuk aku,
                 dan tentunya baik untuk kita.
+
                 <br><br>
+
 
                 Terima kasih sudah menjadi bagian dari hidup aku.
+
                 <br><br>
+
 
                 Dan satu lagi...
+
                 <br><br>
 
+
                 <span class="highlight">
+
                     Jangan pernah lupa kalau ada seseorang
                     yang selalu sayang sama kamu. ❤️
+
                 </span>
 
             </p>
 
 
             <div class="tanda-tangan">
-                Dengan penuh sayang,<br>
+
+                Dengan penuh sayang,
+                <br>
+
                 Aku ❤️
+
             </div>
 
+
         </div>
+
     </div>
 
 
     <script>
+
 
         // ============================
         // BUKA PESAN
@@ -362,16 +641,24 @@
         function bukaPesan() {
 
             const btn =
-                document.querySelector('.btn-buka');
+                document.querySelector(
+                    '.btn-buka'
+                );
+
 
             const pesan =
-                document.getElementById('isiPesan');
+                document.getElementById(
+                    'isiPesan'
+                );
+
 
             btn.style.transition =
                 "all 0.5s";
 
+
             btn.style.opacity =
                 "0";
+
 
             setTimeout(() => {
 
@@ -383,26 +670,63 @@
 
             setTimeout(() => {
 
-                pesan.classList.add('show');
+                pesan.classList.add(
+                    'show'
+                );
 
             }, 300);
 
         }
 
 
+
         // ============================
-        // LOVE MELAYANG ACAK
+        // FOTO BINI
+        // ============================
+
+        const foto1 =
+            new Image();
+
+        const foto2 =
+            new Image();
+
+
+        foto1.src =
+            "./bini 1.jpg";
+
+
+        foto2.src =
+            "./bini 2.jpg";
+
+
+        const fotoBini = [
+
+            foto1,
+            foto2
+
+        ];
+
+
+
+        // ============================
+        // CANVAS
         // ============================
 
         const canvas =
-            document.getElementById("canvas");
+            document.getElementById(
+                "canvas"
+            );
+
 
         const ctx =
-            canvas.getContext("2d");
+            canvas.getContext(
+                "2d"
+            );
 
 
         canvas.width =
             window.innerWidth;
+
 
         canvas.height =
             window.innerHeight;
@@ -411,121 +735,245 @@
         let hearts = [];
 
 
+
+        // ============================
+        // FOTO LOVE
+        // ============================
+
         class FloatingHeart {
+
 
             constructor() {
 
+
                 this.x =
-                    Math.random() * canvas.width;
+                    Math.random() *
+                    canvas.width;
+
 
                 this.y =
                     canvas.height +
-                    Math.random() * 100;
+                    Math.random() *
+                    canvas.height;
+
 
                 this.size =
-                    Math.random() * 18 + 8;
+                    Math.random() *
+                    55 + 45;
+
 
                 this.speed =
-                    Math.random() * 0.7 + 0.2;
+                    Math.random() *
+                    0.5 + 0.3;
+
 
                 this.opacity =
-                    Math.random() * 0.6 + 0.2;
+                    Math.random() *
+                    0.35 + 0.55;
+
 
                 this.swing =
-                    Math.random() * 2 + 0.5;
+                    Math.random() *
+                    2 + 0.5;
+
 
                 this.angle =
-                    Math.random() * Math.PI * 2;
+                    Math.random() *
+                    Math.PI * 2;
 
-                this.rotation =
-                    (Math.random() - 0.5) * 0.02;
 
-                this.color =
-                    Math.random() > 0.5
-                    ? "#ff8fbc"
-                    : "#ffd1e3";
+                this.image =
+                    fotoBini[
+                        Math.floor(
+                            Math.random() *
+                            fotoBini.length
+                        )
+                    ];
+
             }
+
 
 
             update() {
 
-                this.y -= this.speed;
 
-                this.angle += 0.02;
+                this.y -=
+                    this.speed;
+
+
+                this.angle +=
+                    0.02;
+
 
                 this.x +=
-                    Math.sin(this.angle) *
+                    Math.sin(
+                        this.angle
+                    ) *
                     this.swing *
                     0.15;
 
 
-                if (this.y < -50) {
+                if (
+                    this.y < -100
+                ) {
+
 
                     this.y =
-                        canvas.height + 50;
+                        canvas.height +
+                        100;
+
 
                     this.x =
                         Math.random() *
                         canvas.width;
 
-                    this.size =
-                        Math.random() * 18 + 8;
 
-                    this.opacity =
-                        Math.random() * 0.6 + 0.2;
+                    this.size =
+                        Math.random() *
+                        55 + 45;
+
+
+                    this.image =
+                        fotoBini[
+                            Math.floor(
+                                Math.random() *
+                                fotoBini.length
+                            )
+                        ];
+
                 }
 
             }
 
 
+
             draw() {
 
+
+                if (
+                    !this.image.complete
+                ) {
+
+                    return;
+
+                }
+
+
                 ctx.save();
+
 
                 ctx.translate(
                     this.x,
                     this.y
                 );
 
+
                 ctx.globalAlpha =
                     this.opacity;
-
-                ctx.fillStyle =
-                    this.color;
 
 
                 const size =
                     this.size;
 
 
-                // Bentuk LOVE ❤️
+
+                // ============================
+                // BENTUK LOVE
+                // ============================
 
                 ctx.beginPath();
+
 
                 ctx.moveTo(
                     0,
                     size * 0.35
                 );
 
+
                 ctx.bezierCurveTo(
+
                     -size * 0.8,
                     -size * 0.1,
+
                     -size * 0.55,
                     -size * 0.7,
+
                     0,
                     -size * 0.25
+
                 );
+
 
                 ctx.bezierCurveTo(
+
                     size * 0.55,
                     -size * 0.7,
+
                     size * 0.8,
                     -size * 0.1,
+
                     0,
                     size * 0.35
+
                 );
 
-                ctx.fill();
+
+                ctx.closePath();
+
+
+                // POTONG FOTO MENJADI LOVE
+
+                ctx.clip();
+
+
+
+                // ============================
+                // FOTO
+                // ============================
+
+                const imgRatio =
+                    this.image.width /
+                    this.image.height;
+
+
+                let drawWidth =
+                    size;
+
+
+                let drawHeight =
+                    size;
+
+
+                if (
+                    imgRatio > 1
+                ) {
+
+                    drawHeight =
+                        size /
+                        imgRatio;
+
+                } else {
+
+                    drawWidth =
+                        size *
+                        imgRatio;
+
+                }
+
+
+                ctx.drawImage(
+
+                    this.image,
+
+                    -drawWidth / 2,
+
+                    -drawHeight / 2,
+
+                    drawWidth,
+
+                    drawHeight
+
+                );
 
 
                 ctx.restore();
@@ -535,16 +983,24 @@
         }
 
 
-        // Jumlah love
+
+        // ============================
+        // JUMLAH FOTO
+        // ============================
 
         function init() {
 
+
             hearts = [];
 
+
             const jumlah =
+
                 window.innerWidth < 600
-                ? 35
-                : 60;
+
+                ? 10
+
+                : 18;
 
 
             for (
@@ -553,29 +1009,41 @@
                 i++
             ) {
 
+
                 const heart =
                     new FloatingHeart();
+
 
                 heart.y =
                     Math.random() *
                     canvas.height;
 
-                hearts.push(heart);
+
+                hearts.push(
+                    heart
+                );
 
             }
 
         }
 
 
-        // Animasi
+
+        // ============================
+        // ANIMASI
+        // ============================
 
         function animate() {
 
+
             ctx.clearRect(
+
                 0,
                 0,
+
                 canvas.width,
                 canvas.height
+
             );
 
 
@@ -585,7 +1053,9 @@
                 i++
             ) {
 
+
                 hearts[i].update();
+
 
                 hearts[i].draw();
 
@@ -599,29 +1069,40 @@
         }
 
 
+
         init();
 
         animate();
 
 
-        // Resize
+
+        // ============================
+        // RESIZE
+        // ============================
 
         window.addEventListener(
+
             "resize",
+
             () => {
+
 
                 canvas.width =
                     window.innerWidth;
 
+
                 canvas.height =
                     window.innerHeight;
+
 
                 init();
 
             }
+
         );
 
     </script>
+
 
 </body>
 </html>
